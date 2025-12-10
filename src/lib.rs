@@ -586,7 +586,7 @@ impl Config {
 
         cmd.arg(&self.path).current_dir(&build_dir);
 
-        cmd.arg("-B").arg(&build_dir);
+        // cmd.arg("-B").arg(&build_dir);
 
         let mut is_ninja = false;
         if let Some(ref generator) = generator {
@@ -960,6 +960,7 @@ impl Config {
         use cc::windows_registry::{find_vs_version, VsVers};
 
         let base = match find_vs_version() {
+            Ok(VsVers::Vs18) => "Visual Studio 18 2026",
             Ok(VsVers::Vs17) => "Visual Studio 17 2022",
             Ok(VsVers::Vs16) => "Visual Studio 16 2019",
             Ok(VsVers::Vs15) => "Visual Studio 15 2017",
