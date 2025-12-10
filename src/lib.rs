@@ -1139,7 +1139,7 @@ fn uses_named_pipe_jobserver(makeflags: &OsStr) -> bool {
 /// Attempt to canonicalize; fall back to the original path if unsuccessful, in case `cmake` knows
 /// something we don't.
 fn try_canonicalize(path: &Path) -> PathBuf {
-    path.canonicalize().unwrap_or_else(|_| path.to_owned())
+   path.to_owned()
 }
 
 #[cfg(test)]
